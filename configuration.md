@@ -16,7 +16,7 @@ Instead, copy the line you wish to change, paste it in your forum's `config/conf
 <a name="custom-css"></a>
 ## Custom CSS
 
-You may wish to apply some custom CSS styles to your forum without wanting to go to the trouble of [creating a new skin](/docs/skins). You can do so by adding your custom CSS to the `config/custom.css` file. If this file is not empty, esoTalk will automatically load it in each page.
+You may wish to apply some custom CSS styles to your forum without wanting to go to the trouble of [creating a new skin](/skins/introduction). You can do so by adding your custom CSS to the `config/custom.css` file. If this file is not empty, esoTalk will automatically load it in each page.
 
 <a name="friendly-urls"></a>
 ## Friendly URLs

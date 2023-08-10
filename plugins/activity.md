@@ -40,7 +40,7 @@ Plugins can add their own activity types, and thus custom types of user profile 
 
 A projection's callback function is called every time an activity item needs to be rendered in that projection. It receives two arguments:
 
-1. An array of activity details. This contains information about the member who originally performed the activity (`fromMemberId`, `fromMemberName`), as well as an array of additional activity `data`. (See [Creating Activity](#creation).)
+1. An array of activity details. This contains information about the member who originally performed the activity (`fromMemberId`, `fromMemberName`), as well as an array of additional activity `data` (See [Creating Activity](#creation)).
 2. An array of details about the member who is receiving the activity (e.g. the member who joined the forum, the member who was mentioned.)
 
 The callback function for each projection should return HTML to be rendered. The exact format of the return value depends on the projection:
@@ -56,7 +56,8 @@ The callback function for each projection should return HTML to be rendered. The
 	public function likeNotification($activity, $member)
 	{
 		return array(
-			sprintf(T("%s liked your post in %s."), name($activity["fromMemberName"]), "<strong>".sanitizeHTML($item["data"]["title"])."</strong>"), // Notification body
+			sprintf(T("%s liked your post in %s."), name($activity["fromMemberName"]), 
+			sanitizeHTML($item["data"]["title"])), // Notification body
 			URL(postURL($item["data"]["postId"])) // Notification link
 		);
 	}

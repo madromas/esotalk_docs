@@ -6,7 +6,7 @@
 
 A skin is a collection of code and resources which can be dropped in to any esoTalk installation to change its appearance. Skins are stored in the `addons/skins` folder.
 
-> Skins are actually just special types of [plugins](/docs/plugins)! A skin can technically do everything that a plugin can do, although it is recommended to keep functionality-changing code out of skins. Unlike plugins, only one skin can be activated at a time.
+> Skins are actually just special types of [plugins](/plugins/introduction)! A skin can technically do everything that a plugin can do, although it is recommended to keep functionality-changing code out of skins. Unlike plugins, only one skin can be activated at a time.
 
 <a name="packaging"></a>
 ## Packaging
@@ -20,7 +20,7 @@ A skin has the following file structure:
 | `--preview.jpg` | A 250x160 preview which is displayed on the Administration > Appearance page. |
 | `--index.html` | An empty file to prevent the directory from being publicly listed. |
 | `--resources/` | The skin's publicly-accessible resources (CSS/JS files, images, etc.) |
-| `--views/` | The skin's views (see [Concepts](/docs/skins/concepts).) |
+| `--views/` | The skin's views (see [Concepts](/skins/concepts).) |
 
 <a name="details"></a>
 ## Details
@@ -45,5 +45,3 @@ Skin details should be added to the `ET::$skinInfo` array at the top of `skin.ph
 ## Submission
 
 Ideally, you should version-control your skin and create a repository on [GitHub](http://github.com). The `skin.php` file should be at the top-level of the repository; there should be no parent folder.
-
-Skins can be submitted for public listing in the [Skins](/skins) channel on the esoTalk support forum. Read [this conversation]() for skin submission guidelines.

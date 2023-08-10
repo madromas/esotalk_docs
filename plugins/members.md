@@ -10,11 +10,11 @@
 
 User preferences, such as language and notification flags, are stored in a serialized array in the `preferences` column of the `members` table. Keys should be namespaced with the name of your plugin followed by a period (`.`).
 
-When a member is fetched by the `ETMemberModel`, their serialized preferences are automatically expanded into an array, accessible via the "preferences" key on the member array. For convenience, there are [methods on the `ETSession` object](/docs/session) which allow quick access to the current user's preferences.
+When a member is fetched by the `ETMemberModel`, their serialized preferences are automatically expanded into an array, accessible via the "preferences" key on the member array. For convenience, there are [methods on the `ETSession` object](/session) which allow quick access to the current user's preferences.
 
-The `ETSettingsController` handles the user settings interface and all of its default panes. Of particular interest is the *General* pane; this pane contains a [form](/docs/forms) that allows the user to update their preferences, and it can be extended to add more.
+The `ETSettingsController` handles the user settings interface and all of its default panes. Of particular interest is the *General* pane; this pane contains a [form](/forms) that allows the user to update their preferences, and it can be extended to add more.
 
-You can add your own fields and sections to the form (as described in [Forms](/docs/forms)) by handling the `initGeneral` event on the settings controller. The `savePreference` and `saveBoolPreference` methods on the settings controller can be used as processing callbacks; the name of the field will correspond to the preference key that is saved. You can also use your own processing callback, which should accept three arguments:
+You can add your own fields and sections to the form (as described in [Forms](/forms)) by handling the `initGeneral` event on the settings controller. The `savePreference` and `saveBoolPreference` methods on the settings controller can be used as processing callbacks; the name of the field will correspond to the preference key that is saved. You can also use your own processing callback, which should accept three arguments:
 
 * The ETForm object
 * The key of the field that is being processed
@@ -58,7 +58,7 @@ Each settings pane is its own action on the settings controller. In order to ren
 		$controller->renderProfile($this->view("example"));
 	}
 
-You'll probably also want to add a [tab](/docs/menus) for your settings pane. This can be achieved by listening for the `initProfile` event.
+You'll probably also want to add a [tab](/menus) for your settings pane. This can be achieved by listening for the `initProfile` event.
 
 **Adding A Settings Tab**
 
@@ -86,7 +86,7 @@ Similar to the settings page, each pane on a member profile page has its own act
 		$controller->renderProfile($this->view("example"));
 	}
 
-You'll probably also want to add a [tab](/docs/menus) for your profile pane. This can be achieved by listening for the `initProfile` event.
+You'll probably also want to add a [tab](/menus) for your profile pane. This can be achieved by listening for the `initProfile` event.
 
 **Adding A Profile Tab**
 

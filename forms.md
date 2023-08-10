@@ -8,7 +8,7 @@
 <a name="usage"></a>
 ## Basic Usage
 
-The basic purpose of the **[ETForm](/api/class-ETForm.html)** class is to provide convenient methods for processing form data and outputting form HTML. An ETForm instance represents a complete form; properties can be set on it in the *controller*, and then methods can be used to output the form elements in the *view*.
+The basic purpose of the **[ETForm]** class is to provide convenient methods for processing form data and outputting form HTML. An ETForm instance represents a complete form; properties can be set on it in the *controller*, and then methods can be used to output the form elements in the *view*.
 
 **Creating A New Form Object**
 
@@ -29,7 +29,7 @@ Hidden inputs may be added to the form before it is opened. They will be outputt
 <a name="elements"></a>
 ## Generating Elements
 
-The ETForm class has an [abundance of methods](/api/class-ETForm.html) to output all different types of form elements.
+The ETForm class has an [abundance of methods] to output all different types of form elements.
 
 **Generating Basic Input Elements**
 

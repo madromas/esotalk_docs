@@ -60,7 +60,7 @@ Gambits can be registered using the search model's static `addGambit` function. 
 - A condition to run through `eval()` to determine a match. `$term` represents the search term, in lowercase, in the `eval()` context. The condition should return a boolean value: `true` means a match, `false` means no match. Example: `return $term == "sticky";`
 - The function to call if the gambit is matched. The function will be called with the parameters `callback($search, $term, $negate)`.
 
-Within the callback, the SQL query object on the search model (`$search->sql`) may be manipulated, or ID filters may be added using the `$search->addIDFilter` method. For more information, see the [API Reference](/api/class-ETSearchModel.html).
+Within the callback, the SQL query object on the search model (`$search->sql`) may be manipulated, or ID filters may be added using the `$search->addIDFilter` method.
 
 **Registering A Gambit**
 
@@ -107,7 +107,7 @@ Aliases can be created to simplify the use of complex gambits. For example, the 
 
 To make gambits usable, they should be added to the gambits menu that appears when the search field gains focus. The gambit menu is constructed by the conversations controller, not the search model, as it is part of the user interface. It can be altered by handling the `constructGambitsMenu` event.
 
-The gambits menu is structured as a multi-dimensional array rather than a traditional [menu object](/docs/menus); in this way, gambits can be grouped into categories according to the type of criteria they represent. There are a few gambit categories by default: `main`, `time`, `member`, `replies`, and `misc`. You can add gambits to any one of these categories, or create your own.
+The gambits menu is structured as a multi-dimensional array rather than a traditional [menu object](/menus); in this way, gambits can be grouped into categories according to the type of criteria they represent. There are a few gambit categories by default: `main`, `time`, `member`, `replies`, and `misc`. You can add gambits to any one of these categories, or create your own.
 
 Each key-value pair within a category represents a gambit. The key is the gambit; the value is an array containing a CSS class and an icon to display the gambit with.
 

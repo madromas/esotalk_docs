@@ -6,13 +6,13 @@ To enable these more verbose error messages, add the following line to `config/c
 
 	$config["esoTalk.debug"] = true;
 	
-The [esoTalk Support Forum](http://esotalk.org/forum) is a good place to start to see whether anyone else has encountered the same error as you — and if not, you can start a conversation with the error details to get some help.
+The [esoTalk Support Forum](https://github.com/madromas/esoTalk-v3/discussions) is a good place to start to see whether anyone else has encountered the same error as you — and if not, you can start a conversation with the error details to get some help.
 
 Some common problems and their solutions are listed below.
 
 ## *Page Not Found* Errors
 
-If you keep getting *Page Not Found* errors whenever you try to navigate somewhere on your forum, double-check that [friendly URLs](/docs/configuration#friendly-urls) are set up correctly.
+If you keep getting *Page Not Found* errors whenever you try to navigate somewhere on your forum, double-check that [friendly URLs](/configuration#friendly-urls) are set up correctly.
 
 ## "Could not instantiate mail function"
 

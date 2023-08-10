@@ -58,5 +58,5 @@ For the menu constructed over the last few examples, the output will be:
 		<li class='item-foo'>Foo</li>
 	</ul>
 
-A [JavaScript API](/docs/javascript#popups) is available for converting plain menus into popup menus after the page has loaded.
+A [JavaScript API](/javascript#popups) is available for converting plain menus into popup menus after the page has loaded.
 
