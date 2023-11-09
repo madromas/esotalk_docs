@@ -21,7 +21,7 @@ A plugin has the following file structure:
 | `--icon.png` | A 16x16 icon which is displayed on the Administration > Plugins page. |
 | `--index.html` | An empty file to prevent the directory from being publicly listed. |
 | `--resources/` | The plugin's publicly-accessible resources (CSS/JS files, images, etc.) |
-| `--views/` | The plugin's views (see [Concepts](/plugins/concepts#views).) |
+| `--views/` | The plugin's views (see [Concepts](/docs/plugins/concepts#views).) |
 | `--...` | Anything else you may need: class files, libraries, includes, etc. |
 
 <a name="details"></a>

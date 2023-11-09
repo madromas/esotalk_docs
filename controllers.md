@@ -7,9 +7,9 @@
 
 ## Introduction
 
-In esoTalk, **controllers** are responsible for processing input and sending a response back to the browser. Following on from the [Request Lifecycle](/framework#request-lifecycle), the basic process through which this is achieved is as follows:
+In esoTalk, **controllers** are responsible for processing input and sending a response back to the browser. Following on from the [Request Lifecycle](/docs/framework#request-lifecycle), the basic process through which this is achieved is as follows:
 
-1. **The request string is parsed.** (the "conversation/edit/123" part of (http://hub.madway.net/conversation/edit/123)
+1. **The request string is parsed.** (the "conversation/edit/123" part of "http://esotalk.org/forum/conversation/edit/123")
 	- The first part maps to the *controller*.
 	- The second part maps to the controller *method*, prefixed with `action_`, if it exists. Otherwise, we default to the `action_index` method.
 	- Any subsequent parts map to *arguments* which are passed to the controller method.
@@ -36,9 +36,9 @@ In esoTalk, **controllers** are responsible for processing input and sending a r
 <a name="views"></a>
 ## Rendering Views
 
-**Views** contain the HTML of esoTalk, separating the controller logic from the presentation logic. The [ETController] class provides functions to easily include and output views.
+**Views** contain the HTML of esoTalk, separating the controller logic from the presentation logic. The [ETController](/api/class-ETController.html) class provides functions to easily include and output views.
 
-The [ETController::render] function takes the name of a view as an argument and, by default, passes the contents of this view to the master "layout" view (located at `core/views/default.master.php`.)
+The [ETController::render](/api/class-ETController.html#_render) function takes the name of a view as an argument and, by default, passes the contents of this view to the master "layout" view (located at `core/views/default.master.php`.)
 
 **Rendering A View**
 
@@ -80,13 +80,13 @@ The default response type (`RESPONSE_TYPE_DEFAULT`) renders the specified view w
 
 Sometimes you may wish to retrieve only the contents of the specific view being rendered, without the master view around it (for example, when displaying a [Sheet](/docs/javascript#sheets) with XMLHTTPRequest.) This is possible with the "view" response type (`RESPONSE_TYPE_VIEW`).
 
-**Example:** <https://hub.madway.net/conversation/index.view/123>
+**Example:** <http://esotalk.org/forum/conversation/index.view/3>
 
 ### JSON
 
 As you would expect, the "json" response type (`RESPONSE_TYPE_JSON`) renders data as a JSON object with a Content-Type of `application/json`. Data can be added to the JSON object using the `ETController::json` method.
 
-**Example:** <https://hub.madway.net/conversation/index.json/123>
+**Example:** <http://esotalk.org/forum/conversation/index.json/3>
 
 **Forcing a JSON Response And Adding Data**
 
@@ -100,7 +100,7 @@ The "ajax" response type (`RESPONSE_TYPE_AJAX`) is a combination of the "view" a
 
 Like the "json" response type, it renders data as a JSON object, **but it also renders the specified view into the "view" key of that JSON object.**
 
-**Example:** <https://hub.madway.net/conversation/index.ajax/123>
+**Example:** <http://esotalk.org/forum/conversation/index.ajax/3>
 
 **Rendering A JSON Object Containing A View And Other Data**
 

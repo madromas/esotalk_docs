@@ -20,19 +20,19 @@ A plugin class should be defined in `plugin.php`. The class name must be the nam
 
 ### Boot
 
-On every page load, all enabled plugin classes are instantiated before even the session and database objects are created (see [Request Lifecycle](/framework#request-lifecycle).) Immediately after each plugin instantiated, its `boot` method is called. This is an opportunity to perform any low-level bootstrapping tasks, such as [registering classes with the factory](/plugins/common-tasks#controllers-models).
+On every page load, all enabled plugin classes are instantiated before even the session and database objects are created (see [Request Lifecycle](/docs/framework#request-lifecycle).) Immediately after each plugin instantiated, its `boot` method is called. This is an opportunity to perform any low-level bootstrapping tasks, such as [registering classes with the factory](/docs/plugins/common-tasks#controllers-models).
 
 ### Init
 
 Later on in the request lifecycle, after all of esoTalk's core objects have been instantiated, and just before the request is dispatched to the controller, the `init` method is called on each plugins. This is a chance to perform a number of tasks:
 
-- Define default [language translations](/localization)
-- Register [labels](/plugins/conversations#labels), [gambits](/plugins/search#gambits), [activity types](/plugins/activity#types), and [last action types](/plugins/members#last-action-types)
-- Include and [override render functions](/plugins/common-tasks#render)
+- Define default [language translations](/docs/localization)
+- Register [labels](/docs/plugins/conversations#labels), [gambits](/docs/plugins/search#gambits), [activity types](/docs/plugins/activity#types), and [last action types](/docs/plugins/members#last-action-types)
+- Include and [override render functions](/docs/plugins/common-tasks#render)
 
 ### Setup
 
-Every time a plugin is enabled, the `setup` method is called. It is also called automatically when a new version of the plugin is detected. This method provides an opportunity to do things such as [manipulate the database schema](/database#schema) and initialize filesystem structures.
+Every time a plugin is enabled, the `setup` method is called. It is also called automatically when a new version of the plugin is detected. This method provides an opportunity to do things such as [manipulate the database schema](/docs/database#schema) and initialize filesystem structures.
 
 The old version number of the plugin is passed as an argument to the `setup` method. If the plugin is being enabled for the first time, this will be empty. If it is being upgraded from an old version, its value will be the old version number. This argument can be compared with the current version of the plugin to regulate upgrade tasks.
 
@@ -60,7 +60,7 @@ To listen for and subsequently handle events, strategically-named class methods 
 		// ...
 	}
 
-The first parameter (`$sender`) passed to the event handler is the instance of the class that triggered it (in this case, the post model.) Subsequent parameters depend on the event, and are detailed in the [List of Events](/plugins/events).
+The first parameter (`$sender`) passed to the event handler is the instance of the class that triggered it (in this case, the post model.) Subsequent parameters depend on the event, and are detailed in the [List of Events](/docs/plugins/events).
 
 > Parameters prefixed with an ampersand (`&`) are referenced variables, meaning any alterations made locally will also be made to the original copy used in the core.
 
@@ -91,7 +91,7 @@ Events triggered by a plugin class can be handled generally using `handler_event
 <a name="actions"></a>
 ## Actions
 
-As outlined in [Controllers & Views](/controllers), the request URL (e.g. member/name/Toby) maps to a specific method, or action, (name) in a specific controller (ETMemberController). Plugins have the ability to override default action methods and define new ones. 
+As outlined in [Controllers & Views](/docs/controllers), the request URL (e.g. member/name/Toby) maps to a specific method, or action, (name) in a specific controller (ETMemberController). Plugins have the ability to override default action methods and define new ones. 
 
 Like event handlers, overriding actions is achieved using strategically-named class methods. Action methods begin with the `action_` prefix, followed by the factory name of the controller, an underscore, and then the name of the action to handle (i.e. the second parameter of the URL.)
 
@@ -121,7 +121,7 @@ Before and after the controller action is called, two events are triggered. Thes
 <a name="views"></a>
 ## Views
 
-esoTalk's core views are located in `core/views`, as discussed in [Controllers & Views](/controllers#views). These views can be easily overridden by plugins. Simply place the appropriate indentical file/folder structure in the `views` directory of a plugin, and esoTalk will scan for and find it automatically when the view is rendered.
+esoTalk's core views are located in `core/views`, as discussed in [Controllers & Views](/docs/controllers#views). These views can be easily overridden by plugins. Simply place the appropriate indentical file/folder structure in the `views` directory of a plugin, and esoTalk will scan for and find it automatically when the view is rendered.
 
 **File/Folder Structure To Override A View**
 
@@ -139,7 +139,7 @@ Custom views may also be placed in this folder, and rendered using the full path
 <a name="resources"></a>
 ## Resources
 
-A plugin's publicly-accessible resources (CSS/JS files, images, etc.) are stored in the `resources` folder. To make use of them (see [Asset Management](/plugins/common-tasks#assets)) they must be referred to by their full path. This can be retrieved using the `resource` method on the plugin class.
+A plugin's publicly-accessible resources (CSS/JS files, images, etc.) are stored in the `resources` folder. To make use of them (see [Asset Management](/docs/plugins/common-tasks#assets)) they must be referred to by their full path. This can be retrieved using the `resource` method on the plugin class.
 
 **Getting The Path To A Plugin Resource**
 
@@ -152,6 +152,6 @@ Plugins may provide a settings sheet which is displayed when the Settings button
 
 In order to enable the Settings button and display a sheet, a plugin must have a `settings` method. This works similarly to any normal controller action, with one important difference: instead of rendering the view, it should return the full path to the view as a string (using the `view` method.)
 
-For an example of how to construct a settings form and save configuration values in the context of a settings sheet, see [Common Tasks](/plugins/common-tasks#settings).
+For an example of how to construct a settings form and save configuration values in the context of a settings sheet, see [Common Tasks](/docs/plugins/common-tasks#settings).
 
-For more complex administration interfaces, a [custom administration pane](/plugins/common-tasks#admin-panes) may be more suitable.
+For more complex administration interfaces, a [custom administration pane](/docs/plugins/common-tasks#admin-panes) may be more suitable.

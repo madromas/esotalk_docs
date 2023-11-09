@@ -13,7 +13,7 @@ Each label has a name, a condition, and an icon.
 
 * The name is used as the CSS class name (`.label-{name}`) when the label is rendered, as well as for translation (`T("label.{name}")`).
 * The condition is an SQL snippet that is evaluated to determine if a label applies to a conversation. Often a label's presence will simply correlate to the value of a boolean column on the either the `conversation` table (aliased as `c`) or `member_conversation` table (`s`). For example, the sticky label's condition is `IF(c.sticky = 1, 1, 0)`. 
-* The icon is the class name of a [Font Awesome icon](https://fontawesome.com/v3/icons/) (e.g. `icon-pushpin`).
+* The icon is the class name of a [Font Awesome icon](http://fortawesome.github.io/Font-Awesome/3.2.1/icons/) (e.g. `icon-pushpin`).
 
 Labels must be registered statically to the `ETConversationModel` class. This can be done in the `init` method; the conversation model must be instantiated so that the class file is included.
 
@@ -76,7 +76,7 @@ The obvious way to do this might be to perform an SQL query within a `formatPost
 
 Instead, the necessary data can be loaded for all of the posts at once. This can be achieved using two events on the post model: `getPostsBefore` and `getPostsAfter`. 
 
-If the data is simply an additional column on the posts or members table, then all that you need to do is specify that you want that column loaded in the [SQL query](/database#queries). It will then become available in the raw post data array in the `formatPostsForTemplate` event. 
+If the data is simply an additional column on the posts or members table, then all that you need to do is specify that you want that column loaded in the [SQL query](/docs/database#queries). It will then become available in the raw post data array in the `formatPostsForTemplate` event. 
 
 **Loading An Additional Column**
 
@@ -129,7 +129,7 @@ In more complex cases, you might have multiple rows of data that need to be fetc
 
 ### Formatting
 
-The `ETFormat` class is responsible for converting plain-text input to HTML output, as explained in [Formatting](/formatting). This class triggers various events which can be used to perform additional formatting tasks on post content. These are `beforeFormat`, `format`, and `afterFormat`.
+The `ETFormat` class is responsible for converting plain-text input to HTML output, as explained in [Formatting](/docs/formatting). This class triggers various events which can be used to perform additional formatting tasks on post content. These are `beforeFormat`, `format`, and `afterFormat`.
 
 Generally speaking, most formatting should be done using the `format` event. The `beforeFormat` and `afterFormat` events are useful for performing pre- and post-formatting tasks, such as removing code blocks from the string and then inserting them back in so that they are unaffected by formatting.
 

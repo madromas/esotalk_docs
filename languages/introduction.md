@@ -63,3 +63,5 @@ Sometimes you'll see funny things like `%s` symbols or some programming jargon. 
 ## Submission
 
 Ideally, you should version-control your language and create a repository on [GitHub](http://github.com). The `definitions.php` file should be at the top-level of the repository; there should be no parent folder.
+
+Languages can be submitted for public listing in the [Languages](/languages) channel on the esoTalk support forum. Read [this conversation]() for language submission guidelines.

@@ -9,7 +9,7 @@
 <a name="assets"></a>
 ## Asset Management
 
-Usually the `init` event (or any event prefixed with `init`) is a good time to [add resources](/controllers#assets) to the page. Depending on the pages on which you need the resources to be loaded, you can restrict your event handler to a specific controller.
+Usually the `init` event (or any event prefixed with `init`) is a good time to [add resources](/docs/controllers#assets) to the page. Depending on the pages on which you need the resources to be loaded, you can restrict your event handler to a specific controller.
 
 **Adding Global Resources**
 
@@ -29,7 +29,7 @@ Usually the `init` event (or any event prefixed with `init`) is a good time to [
 <a name="render"></a>
 ## Render Functions
 
-esoTalk contains a [number of functions](https://github.com/madromas/esoTalk-v3/blob/main/core/lib/functions.render.php) which are used to render and format reusable user interface elements such as stars, avatars, labels, and member names. The default implementations of these are defined in `core/lib/functions.render.php`.
+esoTalk contains a [number of functions](https://github.com/esotalk/esoTalk/blob/master/core/lib/functions.render.php) which are used to render and format reusable user interface elements such as stars, avatars, labels, and member names. The default implementations of these are defined in `core/lib/functions.render.php`.
 
 You can override any one of these functions with your own implementation by simply defining it before the `functions.render.php` file is included — the `boot` function is such a place. 
 
@@ -49,7 +49,7 @@ You can override any one of these functions with your own implementation by simp
 <a name="settings"></a>
 ## Plugin Settings
 
-Setting up a basic settings sheet for your plugin is easy. First, [define a `settings` method](/plugins/concepts#settings) in your plugin class. In it, you should [create an `ETForm` object](/forms) and handle a submission by [writing configuration values](/config).
+Setting up a basic settings sheet for your plugin is easy. First, [define a `settings` method](/docs/plugins/concepts#settings) in your plugin class. In it, you should [create an `ETForm` object](/docs/forms) and handle a submission by [writing configuration values](/docs/config).
 
 **Defining A Settings Method**
 
@@ -76,7 +76,7 @@ Setting up a basic settings sheet for your plugin is easy. First, [define a `set
 		return $this->view("settings");
 	}
 	
-Next, you'll need to create a `views/settings.php` in your plugin folder and construct your plugin's settings sheet. Form elements can be outputted using [methods on your form object](/forms#elements).
+Next, you'll need to create a `views/settings.php` in your plugin folder and construct your plugin's settings sheet. Form elements can be outputted using [methods on your form object](/docs/forms#elements).
 	
 **Marking Up A Settings Sheet**
 
@@ -102,12 +102,12 @@ Next, you'll need to create a `views/settings.php` in your plugin folder and con
 
 When your plugin requires an administration interface that is too complex for a single sheet, you can add a whole new administration pane. 
 
-Each administration pane has its own controller which extends the `ETAdminController` class. It works just like any other [controller](/controllers), except for two differences:
+Each administration pane has its own controller which extends the `ETAdminController` class. It works just like any other [controller](/docs/controllers), except for two differences:
 
-1. Views are rendered within a wrapper  view that shows the administration menu on the side (only for the default [response type](/controllers#response-types).)
+1. Views are rendered within a wrapper  view that shows the administration menu on the side (only for the default [response type](/docs/controllers#response-types).)
 2. It responds to a URL prefixed with "admin/".
 
-Your administration controller must be [registered](/framework#factory) using the `ETFactory::registerAdminController` method.
+Your administration controller must be [registered](/docs/framework#factory) using the `ETFactory::registerAdminController` method.
 
 **Registering An Administration Controller**
 
@@ -116,7 +116,7 @@ Your administration controller must be [registered](/framework#factory) using th
 		ETFactory::registerAdminController("example", "ETExampleAdminController", $this->file("ETExampleAdminController.class.php")); // Responds to admin/example/...
 	}
 
-You'll probably also want to add an item to the administration [menu](/menus). This can be achieved by listening for the `initAdmin` event.
+You'll probably also want to add an item to the administration [menu](/docs/menus). This can be achieved by listening for the `initAdmin` event.
 
 **Adding An Item To The Administration Menu**
 
@@ -128,7 +128,7 @@ You'll probably also want to add an item to the administration [menu](/menus). T
 <a name="controllers-models"></a>
 ## Controllers & Models
 
-If your plugin introduces a new type of entity (e.g. attachments, events,) it is good practice to group all of the logic surrounding this entity into its own [controller](/controllers) and [model](/models).
+If your plugin introduces a new type of entity (e.g. attachments, events,) it is good practice to group all of the logic surrounding this entity into its own [controller](/docs/controllers) and [model](/docs/models).
 
 These can be registered with the factory in the boot method.
 
@@ -140,7 +140,7 @@ These can be registered with the factory in the boot method.
 		ETFactory::registerController("example", "ExampleController", $this->file("ExampleController.class.php"));
 	}
 
-Your model should extend the `ETModel` class to inherit [basic model functionality]. You can get an instance of the model within your controller using the `ETFactory::make` method. 
+Your model should extend the `ETModel` class to inherit [basic model functionality](/api/class-ETModel.html). You can get an instance of the model within your controller using the `ETFactory::make` method. 
 
 **Getting An Instance Of A Custom Model**
 

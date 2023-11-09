@@ -6,7 +6,7 @@
 <a name="pages"></a>
 ## Linking To Pages
 
-To accommodate for different URL structures (i.e. [friendly URLs](/configuration#friendly-urls) and mod_rewrite), all hyperlinks should be created using the `URL` function. Given a request path, this function will construct a relative or absolute URL which can be used to link to a page in esoTalk.
+To accommodate for different URL structures (i.e. [friendly URLs](/docs/configuration#friendly-urls) and mod_rewrite), all hyperlinks should be created using the `URL` function. Given a request path, this function will construct a relative or absolute URL which can be used to link to a page in esoTalk.
 
 **Constructing A URL**
 
@@ -14,7 +14,7 @@ To accommodate for different URL structures (i.e. [friendly URLs](/configuration
 	
 **Constructing An Absolute URL**
 
-	$url = URL("conversation/delete/123", true); // https://hub.madway.net/conversation/delete/123
+	$url = URL("conversation/delete/123", true); // http://esotalk.org/forum/conversation/delete/123
 	
 You may construct request paths to common entities within esoTalk using the following functions. These functions ensure entity links are formatted consistently and are future-proof. However, the resulting request path still needs to be run through the `URL` function to properly link to a page.
 

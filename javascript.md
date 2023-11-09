@@ -11,7 +11,7 @@
 
 <!-- -->
 
-> For information about including JavaScript files on the page, see [Controllers](/controllers#asset-management). 
+> For information about including JavaScript files on the page, see [Controllers](/docs/controllers#asset-management). 
 
 <a name="data"></a>
 ## Data
@@ -27,7 +27,7 @@ ETController provides a way to pass data to the page so that it will be easily a
 	
 	var conversationId = ET.conversationId; // 123
 	
-You can also conveniently add language definitions to be accessible via JavaScript using the `addJSLanguage` method. This method accepts unlimited arguments as language definition keys. Translation can then be performed in JavaScript using the `T` function, which works the same way as the [PHP function](/localization).
+You can also conveniently add language definitions to be accessible via JavaScript using the `addJSLanguage` method. This method accepts unlimited arguments as language definition keys. Translation can then be performed in JavaScript using the `T` function, which works the same way as the [PHP function](/docs/localization).
 
 **Adding Language Definitions To Be Accessible Via JavaScript**
 
@@ -36,9 +36,9 @@ You can also conveniently add language definitions to be accessible via JavaScri
 <a name="ajax"></a>
 ## AJAX
 
-In the spirit of being fast and responsive, esoTalk is an AJAX-heavy application. esoTalk provides a wrapper around [jQuery's ajax method](http://api.jquery.com/jQuery.ajax/) called `ETAjax`. This wrapper automatically adds essential data to every AJAX request (like the [session token](/security#csrf-protection)), automates handling of various components that may be returned in an AJAX request (like messages and redirects), and handles disconnection errors (showing an error message and allowing the user to reattempt the failed AJAX request.)
+In the spirit of being fast and responsive, esoTalk is an AJAX-heavy application. esoTalk provides a wrapper around [jQuery's ajax method](http://api.jquery.com/jQuery.ajax/) called `ETAjax`. This wrapper automatically adds essential data to every AJAX request (like the [session token](/docs/security#csrf-protection)), automates handling of various components that may be returned in an AJAX request (like messages and redirects), and handles disconnection errors (showing an error message and allowing the user to reattempt the failed AJAX request.)
 
-To take full advantage of this functionality, you must request the [AJAX response type](/controllers#response-types). Simply append `.ajax` to the controller method in the URL. You can read more about response types in [Controllers](/controllers#response-types).
+To take full advantage of this functionality, you must request the [AJAX response type](/docs/controllers#response-types). Simply append `.ajax` to the controller method in the URL. You can read more about response types in [Controllers](/docs/controllers#response-types).
 
 **Making An AJAX Request**
 
@@ -70,7 +70,7 @@ On top of the [options available to jQuery's ajax method](http://api.jquery.com/
 
 In esoTalk, "sheets" are modal dialogs. They are usually constructed surrounding a particular task, such as logging in, registering, or managing members who are allowed to view a conversation.
 
-A single sheet should be defined in a view, as marked-up below. The sheet can then be rendered both in the context of the "default" repsonse type, or on its own (and thus as a modal dialog) through the "view" or "ajax" response types (see [Response Types](/controllers#response-types).)
+A single sheet should be defined in a view, as marked-up below. The sheet can then be rendered both in the context of the "default" repsonse type, or on its own (and thus as a modal dialog) through the "view" or "ajax" response types (see [Response Types](/docs/controllers#response-types).)
 
 **HTML Mark-Up For A Sheet**
 
@@ -88,7 +88,7 @@ A single sheet should be defined in a view, as marked-up below. The sheet can th
 		</div>
 	</div>
 
-After a controller method has been defined which renders the sheet view (see [Controllers](/controllers)), the sheet can be loaded and hidden using methods on the `ETSheet` object. The `loadSheet` method accepts four parameters:
+After a controller method has been defined which renders the sheet view (see [Controllers](/docs/controllers)), the sheet can be loaded and hidden using methods on the `ETSheet` object. The `loadSheet` method accepts four parameters:
 
 1. The ID of the sheet, which must correspond to the ID of the outer `<div class='sheet'>` in the view
 2. The URL that will render the sheet
@@ -162,7 +162,7 @@ This list can be transformed into a single `<a class='button'>` element using a 
 <a name="messages"></a>
 ## Messages
 
-esoTalk provides a central area on the page for messages to be displayed, as discussed in [Messages](/messages). Messages can also be displayed and destroyed in JavaScript. 
+esoTalk provides a central area on the page for messages to be displayed, as discussed in [Messages](/docs/messages). Messages can also be displayed and destroyed in JavaScript. 
 
 **Showing A Message**
 

@@ -30,11 +30,11 @@ An array of messages may be shown using the `messages` method. This is particula
 	$messages = $model->errors();
 	$this->messages($messages, "warning");
 
-A [JavaScript API](/javascript#messages) is available for showing and hiding messages after the page has loaded. Note that messages will automatically be shown on any ETAjax requests if the [response type](/controllers#response-types) is "ajax" or "json".
+A [JavaScript API](/docs/javascript#messages) is available for showing and hiding messages after the page has loaded. Note that messages will automatically be shown on any ETAjax requests if the [response type](/docs/controllers#response-types) is "ajax" or "json".
 
 ## Modal Messages
 
-Sometimes you may wish to display a **modal message** to the user, where they must dismiss a [sheet](/javascript#sheets) before continuing to use the application. This can be done with the `renderMessage` method on ETController. Behind the scenes, this method simply sets up a standard view that will display the passed title and message on a sheet, and renders it.
+Sometimes you may wish to display a **modal message** to the user, where they must dismiss a [sheet](/docs/javascript#sheets) before continuing to use the application. This can be done with the `renderMessage` method on ETController. Behind the scenes, this method simply sets up a standard view that will display the passed title and message on a sheet, and renders it.
 
 **Showing A Modal Message**
 
